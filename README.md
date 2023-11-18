@@ -1,3 +1,5 @@
+![Screenshot_2023-11-18_12-30-28](https://github.com/just4id/Install-EndeavourOS-on-N1/assets/687841/7545f129-4397-4523-a18c-2854a64cc738)
+
 # 前言
 >建了一个新的分支, 采用新版本的uboot来安装. 原来的 master 分支保留, 里面的内容依然可以参考.
 
