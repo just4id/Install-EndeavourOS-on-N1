@@ -132,7 +132,7 @@ sync
     cd new-uboot-for-N1
     cp -fr * /boot/
     ```
-1. 设置 extlinux.conf
+2. 设置 extlinux.conf
 
     ```sh
     root_uuid=$(lsblk -n -o UUID /dev/sda2)
@@ -140,7 +140,7 @@ sync
     # 确认一下修改是否成功
     grep ${root_uuid} /boot/extlinux/extlinux.conf
     ```
-1. 设置 fstab
+3. 设置 fstab
     ```sh
     root_uuid=$(lsblk -n -o UUID /dev/sda2)
     boot_uuid=$(lsblk -n -o UUID /dev/sda1)
@@ -148,7 +148,15 @@ sync
     echo "UUID=${boot_uuid} /boot vfat rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro 0 2" >> /etc/fstab
     cat /etc/fstab # 检查一下
     ```
+4. 设置X11(IMPORTANT)
+   add the conetent to the header of the files: (/usr/share/X11/xorg.conf.d) 10-amdgpu.conf 10-quirks.conf 40-libinput.conf
+   Section "Device"
+   Identifier "Card0"
+   Driver "fbdev"
+   BusID "pci0:01:0:0:"
+   EndSection
 
+   
 # 基本设置
 > 重启
 ```sh
