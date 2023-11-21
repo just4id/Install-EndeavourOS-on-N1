@@ -149,13 +149,16 @@ sync
     cat /etc/fstab # 检查一下
     ```
 4. 设置X11(IMPORTANT)
+   ```sh
    add the conetent to the header of the files: (/usr/share/X11/xorg.conf.d) 10-amdgpu.conf 10-quirks.conf 40-libinput.conf
+   ```
+   ```sh
    Section "Device"
    Identifier "Card0"
    Driver "fbdev"
    BusID "pci0:01:0:0:"
    EndSection
-
+   ```
    
 # 基本设置
 > 重启
